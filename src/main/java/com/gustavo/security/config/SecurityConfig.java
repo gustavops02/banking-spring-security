@@ -17,8 +17,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests((requests) ->
                 requests
                 .requestMatchers("/api/account/**", "/api/balance/**", "/api/loans/**", "/api/cards/**").authenticated()
-                .requestMatchers("/api/notices/**", "/api/contacts/**").permitAll()
-                .anyRequest().authenticated())
+                .requestMatchers("/api/notices/**", "/api/contacts/**").permitAll())
                 .formLogin(withDefaults()).httpBasic(withDefaults());
         return http.build();
     }
