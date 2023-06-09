@@ -18,3 +18,12 @@ CREATE TABLE `authorities` (
 
 INSERT IGNORE INTO `users` VALUES (NULL, 'gustavops02', '12345', 1);
 INSERT IGNORE INTO `authorities` VALUES (NULL, 'gustavops02', 'write');
+
+CREATE TABLE customer (
+     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     email VARCHAR(255) NOT NULL,
+     password VARCHAR(45) NOT NULL
+);
+
+INSERT INTO customer VALUES (NULL, "gustavo.psilvaa02@gmail.com", "36196918gu", 'admin');
+
