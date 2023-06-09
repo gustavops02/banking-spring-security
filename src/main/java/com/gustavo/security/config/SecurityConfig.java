@@ -20,11 +20,13 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+
         http.authorizeHttpRequests((requests) ->
                 requests
                 .requestMatchers("/api/account/**", "/api/balance/**", "/api/loans/**", "/api/cards/**").authenticated()
-                .requestMatchers("/api/notices/**", "/api/contacts/**").permitAll())
+                .requestMatchers("/api/notices/**", "/api/contacts/**", "/register").permitAll())
                 .formLogin(withDefaults()).httpBasic(withDefaults());
+        http.csrf(csrf -> csrf.disable());
         return http.build();
     }
 
