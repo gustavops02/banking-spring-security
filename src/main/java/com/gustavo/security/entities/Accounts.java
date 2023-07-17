@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -23,14 +24,14 @@ public class Accounts {
     private String branchAdress;
 
     @Column(name = "created_at")
-    private String createdAt;
+    private Date createdAt;
 
     @Column(name = "customer_id")
     private int customerId;
 
     public Accounts() {}
 
-    public Accounts(long accountNumber, String accountType, String branchAdress, String createdAt, int customerId) {
+    public Accounts(long accountNumber, String accountType, String branchAdress, Date createdAt, int customerId) {
         this.accountNumber = accountNumber;
         this.accountType = accountType;
         this.branchAdress = branchAdress;
@@ -62,11 +63,11 @@ public class Accounts {
         this.branchAdress = branchAdress;
     }
 
-    public String getCreatedAt() {
+    public Date getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
