@@ -9,7 +9,6 @@ import java.util.Objects;
 
 
 @Entity
-
 public class Customer {
 
     @Id
