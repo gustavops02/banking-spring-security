@@ -2,6 +2,7 @@ package com.gustavo.security.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.util.Date;
 import java.util.Objects;
@@ -9,6 +10,7 @@ import java.util.Objects;
 @Entity
 public class Loans {
 
+    @Id
     @Column(name = "loan_number")
     private int loanId;
 
