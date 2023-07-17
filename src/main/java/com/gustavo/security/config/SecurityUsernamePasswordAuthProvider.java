@@ -33,7 +33,7 @@ public class SecurityUsernamePasswordAuthProvider implements AuthenticationProvi
         Customer customer = customerRepository.findByEmail(email);
 
         if (customer != null) {
-            if(passwordEncoder.matches(password, customer.getPassword())) {
+            if(passwordEncoder.matches(password, customer.getPwd())) {
                 List<GrantedAuthority> authorities = new ArrayList<>();
                 authorities.add(new SimpleGrantedAuthority(customer.getRole()));
                 return new UsernamePasswordAuthenticationToken(email, password, authorities);
