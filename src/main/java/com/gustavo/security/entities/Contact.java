@@ -3,6 +3,7 @@ package com.gustavo.security.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.Objects;
 @Table(name = "contact_messages")
 public class Contact {
 
+    @Id
     @Column(name = "contact_id")
     private String contactId;
 

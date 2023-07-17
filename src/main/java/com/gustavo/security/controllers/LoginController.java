@@ -24,8 +24,8 @@ public class LoginController {
     public ResponseEntity<Customer> insert(@RequestBody Customer customer) {
 
         try{
-            String hashPasswordEncoder = passwordEncoder.encode(customer.getPassword());
-            customer.setPassword(hashPasswordEncoder);
+            String hashPasswordEncoder = passwordEncoder.encode(customer.getPwd());
+            customer.setPwd(hashPasswordEncoder);
             Customer customerObj = customerRepository.save(customer);
             return ResponseEntity.ok().body(customerObj);
 
