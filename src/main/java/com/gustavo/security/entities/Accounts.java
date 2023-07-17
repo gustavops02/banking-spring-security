@@ -1,7 +1,6 @@
 package com.gustavo.security.entities;
 
 
-import com.gustavo.security.controllers.AccountController;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
