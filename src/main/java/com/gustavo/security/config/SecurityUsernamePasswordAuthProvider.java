@@ -30,12 +30,12 @@ public class SecurityUsernamePasswordAuthProvider implements AuthenticationProvi
         String email = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        Customer customer = customerRepository.findByEmail(email);
+        List<Customer> customer = customerRepository.findByEmail(email);
 
-        if (customer != null) {
-            if(passwordEncoder.matches(password, customer.getPwd())) {
+        if (customer.size() > 0) {
+            if(passwordEncoder.matches(password, customer.get(0).getPwd())) {
                 List<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority(customer.getRole()));
+                authorities.add(new SimpleGrantedAuthority(customer.get(0).getRole()));
                 return new UsernamePasswordAuthenticationToken(email, password, authorities);
             } else {
                 throw new BadCredentialsException("Invalid password");

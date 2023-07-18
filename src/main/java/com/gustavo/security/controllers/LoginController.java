@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -28,6 +29,7 @@ public class LoginController {
         try{
             String hashPassword = passwordEncoder.encode(customer.getPwd());
             customer.setPwd(hashPassword);
+            customer.setCreatedAt(new Date(System.currentTimeMillis()));
             Customer customerObj = customerRepository.save(customer);
 
             if(customerObj.getId() > 0) {
